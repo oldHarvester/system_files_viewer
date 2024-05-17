@@ -203,6 +203,7 @@ class _DirectoryPageState extends State<DirectoryPage> {
                         MaterialPageRoute(
                           builder: (context) => DirectoryPage(
                             directory: fileEntity,
+                            onHlsPlayPressed: widget.onHlsPlayPressed,
                           ),
                         ),
                       );
