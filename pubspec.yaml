@@ -1,0 +1,22 @@
+name: system_files_viewer
+description: "A package that allows navigating between directories within the application."
+version: 1.0.0
+homepage:
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.3.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+example:
+  path: example/
+
+flutter:
