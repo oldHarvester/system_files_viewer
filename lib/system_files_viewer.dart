@@ -11,12 +11,18 @@ export 'package:system_files_viewer/src/widgets/directory_file.dart';
 export 'package:system_files_viewer/src/widgets/file_tile.dart';
 
 class SystemFilesViewer {
-  static Future<T?> openDirectoryPage<T>(
-      {required BuildContext context, required Directory directory}) {
+  static Future<T?> openDirectoryPage<T>({
+    required BuildContext context,
+    required Directory directory,
+    void Function(File)? onHlsPlayPressed,
+  }) {
     return Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) {
-          return DirectoryPage(directory: directory);
+          return DirectoryPage(
+            directory: directory,
+            onHlsPlayPressed: onHlsPlayPressed,
+          );
         },
       ),
     );
@@ -25,11 +31,15 @@ class SystemFilesViewer {
   static Future<T?> openFileDetailsPage<T>({
     required BuildContext context,
     required File file,
+    VoidCallback? onHlsPlayPressed,
   }) {
     return Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) {
-          return FileDetailsPage(file: file);
+          return FileDetailsPage(
+            file: file,
+            onHlsPlayPressed: onHlsPlayPressed,
+          );
         },
       ),
     );
