@@ -1,6 +1,6 @@
 name: system_files_viewer
 description: "A package that allows navigating between directories within the application."
-version: 1.0.3
+version: 1.0.4
 repository: https://github.com/oldHarvester/system_files_viewer
 issue_tracker: https://github.com/oldHarvester/system_files_viewer/issues
 
