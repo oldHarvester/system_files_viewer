@@ -41,50 +41,53 @@ class _FileDetailsPageState extends State<FileDetailsPage> {
   Widget build(BuildContext context) {
     final fileName = widget.file.path.split('/').last;
     final fileNameExtension = fileName.split('.').last;
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          fileName,
+    return Theme(
+      data: ThemeData(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            fileName,
+          ),
+          actions: [
+            if (fileNameExtension == "m3u8")
+              IconButton(
+                onPressed: widget.onHlsPlayPressed,
+                icon: Icon(
+                  Icons.play_arrow,
+                  color: Colors.green.shade700,
+                ),
+              )
+          ],
         ),
-        actions: [
-          if (fileNameExtension == "m3u8")
-            IconButton(
-              onPressed: widget.onHlsPlayPressed,
-              icon: Icon(
-                Icons.play_arrow,
-                color: Colors.green.shade700,
-              ),
-            )
-        ],
-      ),
-      body: hasError
-          ? const Center(
-              child: Text(
-                "Error when trying to read this file",
-                style: TextStyle(
-                  fontSize: 20,
+        body: hasError
+            ? const Center(
+                child: Text(
+                  "Error when trying to read this file",
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
                 ),
-              ),
-            )
-          : SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: List.generate(
-                  fileContent.length,
-                  (index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(6.0),
-                      child: Text(
-                        fileContent[index],
-                        style: const TextStyle(
-                          fontSize: 14,
+              )
+            : SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: List.generate(
+                    fileContent.length,
+                    (index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(6.0),
+                        child: Text(
+                          fileContent[index],
+                          style: const TextStyle(
+                            fontSize: 14,
+                          ),
                         ),
-                      ),
-                    );
-                  },
+                      );
+                    },
+                  ),
                 ),
               ),
-            ),
+      ),
     );
   }
 }
